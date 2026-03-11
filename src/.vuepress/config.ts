@@ -3,6 +3,7 @@ import { searchProPlugin } from "vuepress-plugin-search-pro";
 import theme from "./theme.js";
 
 export default defineUserConfig({
+  base: "/my-docs/",
   lang: "zh-CN",
   title: "willow",
   description: "willow的博客",
