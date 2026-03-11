@@ -3,19 +3,21 @@ title: express怎么使用
 isTimeLine: true
 date: 2026-02-24
 category:
-  - 服务器
+  - 后端
 tag:
-  - 服务器
+  - 后端 
+  - express
 ---
 
-express
-1. express是一个基于Node.js的轻量级 Web 应用框架（服务器软件），因其简洁性和灵活性而广受欢迎。它提供了一组简单的工具，用于快速创建 Web 应用，通过express可以快速的在node中搭建一个web服务器。官网地址：https://www.expressjs.com.cn
-2. 下载：①创建并初始化项目yarn init -y；②安装express yarn add express；③创建index.js 并编写代码
+### express
+1. `express`是一个基于`Node.js`的轻量级 Web 应用框架（服务器软件），因其简洁性和灵活性而广受欢迎。它提供了一组简单的工具，用于快速创建 Web 应用，通过express可以快速的在node中搭建一个web服务器。官网地址：[https://www.expressjs.com.cn](https://www.expressjs.com.cn/)
+2. 下载：①创建并初始化项目`yarn init -y`；②安装express` yarn add express`；③创建index.js 并编写代码
 3. 使用：
-  a. 引入express；const express = require("express")
-  b. 获取服务器的实例（对象）；const app = express()
-  c. 为服务器设置路由；app.METHOD(...)
-  d. 启动服务器 app.listen(3000, () => {})
+> a. 引入express；`const express = require("express")`  
+> b. 获取服务器的实例（对象）；`const app = express()`  
+> c. 为服务器设置路由；`app.METHOD(...)`  
+> d. 启动服务器 `app.listen(3000, () => {})`
+
 ```js
 // 1 引入express
 const express = require("express")
@@ -43,16 +45,15 @@ app.listen(3000, () => {
 })
 // 打开http://127.0.0.1:3000/hello访问，显示文字：这是我的第一个服务器
 ```
-路由
-1. 如果希望服务器可以正常访问，则需要为服务器设置路由，路由可以根据不同的请求方式和请求地址来处理用户的请求；格式：app.请求方法(路径，回调函数) app.get('/hello', (request, response) => {...})
-2. 参数获取
-  a. params 参数：指的是 URL 路径中的参数 console.log(request.params.id);
-  b. query 参数：获取请求报文中的数据console.log(request.query);
+### 路由
+1. 如果希望服务器可以正常访问，则需要为服务器设置路由，路由可以根据不同的请求方式和请求地址来处理用户的请求；格式：app.请求方法(路径，回调函数) `app.get('/hello', (request, response) => {...})`
+2. 参数获取  
+  a. params 参数：指的是URL路径中的参数 `console.log(request.params.id);`  
+  b. query 参数：获取请求报文中的数据`console.log(request.query);`  
   c. 请求体参数
-3. 响应设置
-  a. 设置响应状态码 设置响应头 设置响应体 重定向 响应文件内容
-4. Router 管理路由
-  a. express 中的 Router 是一个完整的中间件和路由系统，可以看做是一个小型的 app 对象，它可以对路由进行模块化拆分，能更好的管理路由。const router = express.Router();
+3. 响应设置: 设置响应状态码 设置响应头 设置响应体 重定向 响应文件内容
+4. Router 管理路由: express 中的 Router 是一个完整的中间件和路由系统，可以看做是一个小型的 app 对象，它可以对路由进行模块化拆分，能更好的管理路由。`const router = express.Router();`
+
 ```js
 //  1 获取params参数
 app.get("/hello/:name", (req, res) => {
@@ -80,6 +81,7 @@ app.post("/login", (req, res) => {
         res.send("<h1>登录失败</h1>")
     }
 })
+
 //-----------------------------
 // express提供的响应设置api  设置响应状态码 设置响应头 设置响应体 重定向 响应文件内容
 response.status(500); //设置响应状态码
@@ -87,6 +89,9 @@ response.set('token','r5t776tr5e345e'); //设置响应头
 response.send('中文响应不乱码'); //设置响应体
 response.redirect('http://baidu.com') //重定向
 response.sendFile(__dirname + '/home.html') //响应文件内容
+```
+Router 管理路由
+```js
 // 1 homeRouter.js文件
 const express = require('express');
 //创建路由器对象
@@ -101,8 +106,7 @@ router.post('/add', (req, res) => {
   res.send('添加成功');
 });
 module.exports = router;//暴露router
-```     
-```js                                
+
 // 2 index.js文件使用路由
 const express = require('express');
 const homeRouter = require('./routes/homeRouter')
@@ -115,15 +119,16 @@ app.listen(3000,()=>{
 ```
 中间件
 1. 中间件（Middleware）本质是一个回调函数。在express使用app.use来定义一个中间件，中间件作用和路由很像
-2. 定义与使用
-  a. 定义：function middle1 (request,response,next){ ... next();}
-  b. 使用：app.use(middle1)
-3. 可以多个调用，需要next()放行：next是一个函数，调用函数后，可以触发后续的中间件，不能在响应处理完毕后调用。
+2. 定义与使用  
+  a. 定义：`function middle1 (request,response,next){ ... next();}`  
+  b. 使用：`app.use(middle1)`
+3. 可以多个调用，需要`next()`放行：next是一个函数，调用函数后，可以触发后续的中间件，不能在响应处理完毕后调用。
 4. 作用：
-  a. 可以配置静态资源的路径；app.use(express.static(path.resolve(__dirname, "public")))
-  b. 引入解析请求体的中间件；app.use(express.urlencoded())
-  c. 验证是否登录，没有重定向到登录页
-  d. 在路由最后，配置错误路由重定向到404页面，只要这个中间件一执行，说明上边的地址都没有匹配。
+> a. 可以配置静态资源的路径；`app.use(express.static(path.resolve(__dirname, "public")))`  
+> b. 引入解析请求体的中间件；`app.use(express.urlencoded())`  
+> c. 验证是否登录，没有重定向到登录页  
+> d. 在路由最后，配置错误路由重定向到404页面，只要这个中间件一执行，说明上边的地址都没有匹配。
+
 ```js
 // 1 引入express
 const express = require("express")
@@ -168,13 +173,13 @@ app.listen(3000, () => {
 EJS模版引擎
 1. 模板引擎是分离用户界面和业务数据的一种技术,EJS 是一个高效的 Javascript 的模板引擎https://ejs.bootcss.com/
 2. html页面属于静态页面，不会自动跟随服务器中数据的变化而变化，可以根据数据变化页面内容有变化，在node中被称为模板，ejs是node中的一款模板引擎
-3. 下载安装 ejsnpm i ejs
+3. 下载安装 ejs`npm i ejs`
 4. 使用
-  a. 配置express的模板引擎为ejsapp.set("view engine", "ejs")
-  b. 配置模板路径app.set("views", path.resolve(__dirname, "views"))
-  c. views下面新建students.ejs文件，<h1>学生名称：<%=name  %></h1>
-  d. 渲染一个模板引擎传递变量，并将其返回给浏览器 res.render("students", { name })
-  e. 在网页中显示出来
+> a. 配置express的模板引擎为ejs`app.set("view engine", "ejs")`；  
+> b. 配置模板路径`app.set("views", path.resolve(__dirname, "views"))`；  
+> c. views下面新建students.ejs文件，`<h1>学生名称：<%=name  %></h1>`；  
+> d. 渲染一个模板引擎传递变量，并将其返回给浏览器`res.render("students", { name })`；  
+> e. 在网页中显示出来
 ```js
 const express = require('express')
 const app = express()
@@ -205,3 +210,5 @@ app.listen(8088, () => {
   <h2>学员n值班</h2>
 <%}%>
 ```
+### 链接
+[Node.js完全指南（直播回放）李立超](https://www.bilibili.com/video/BV1qN4y1A7jM/?spm_id_from=333.788.recommend_more_video.7&trackid=web_related_0.router-related-2481894-52kq4.1773251625972.646&vd_source=a3aec2a1dd5f478da3517872d0c61c5c)

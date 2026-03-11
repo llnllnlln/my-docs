@@ -35,11 +35,6 @@ export default hopeTheme({
 
   blog: {
     description: "走完要走的路，才能到达想去的地方",
-    medias: {
-      GitHub: "https://github.com/llnllnlln",
-      Juejin: "https://juejin.cn/user/4344913237918861/posts",
-      Email: "1397212453@qq.com",
-    },
   },
 
   encrypt: {

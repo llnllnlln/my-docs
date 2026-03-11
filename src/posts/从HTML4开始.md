@@ -1,100 +1,91 @@
 ---
-title: CSS2有什么
+title: HTML4开始
 isTimeLine: true
-date: 2026-03-10
+date: 2026-02-10
 category:
   - 前端
-  - CSS
+  - HTML
 tag:
-  - CSS
+  - HTML
 ---
-> 文章同步在公众号：萌萌哒草头将军，欢迎关注
->
-> 我的博客地址：https://mmdctjj.github.io/blogs2/
->
-> 对应仓库地址：https://github.com/mmdctjj/blogs2
-### CSS简介
-层叠样式表 ( Cascading Style Sheets ) 。CSS 也是一种标记语言，用于给 HTML 结构设置样式，例如：文字大小、颜色、元素宽高等等。
-### CSS选择器
-1. CSS基本选择器
-> 1.  通配选择器：选中所有标签，一般用于清除样式。     `* {color:red} ` 
-> 2.  元素选择器：选中所有同种标签，但是不能差异化选择。`h1 {color:red} ` 
-> 3.  类选择器： 选中所有特定类名（ class 值）的元素 。`.say {color:red}  `
-> 4.  ID选择器： 选中特定 id 值的那个元素（唯一的）    `#earthy {color:red} ` 
-2. CSS复杂选择器 
-> 1. 交集选择器：选中同时符合多个条件的元素。语法：选择器1选择器2...选择器n {} ` p.beauty { color: blue;}`
-> 2.  并集选择器：语法：选择器1, 选择器2,  ... 选择器n {}  `.rich, .beauty { font-size: 40px;}`
-> 3.  后代选择器：语法：选择器1 选择器2 ... 选择器n {}  `ul li a { color: orange; } `
-> 4.  子元素选择器：选中指定元素中，符合要求的子元素（儿子元素） 语法：  选择器1 > 选择器2 > 选择器3 > 选择器n {}  `.persons>a{ color: red; }`
-> 5.  兄弟选择器
->   ①相邻兄弟选择器， 是紧挨着他的下一个；语法： 选择器1+选择器2{} `div+p { color:red; }`
->   ②通用兄弟选择器， 选中指定元素后，符合条件的所有兄弟元素；语法：选择器1~ 选择器2{} `div~p { color:red;}`
-> 6.  属性选择器 ： 选中属性值符合一定要求的元素，如选中title属性值以a开头的元素 `div[title^="a"]{color:red;}`
-3. 选择器的优先级：行内样式 > ID选择器 > 类选择器 > 元素选择器 > 通配选择器。
-### CSS三大特性
-1. 层叠性: 如果发生了样式冲突，那就会根据一定的规则（选择器优先级），进行样式的层叠  
-2. 继承性: 元素会自动拥有其父元素、或其祖先元素上所设置的某些样式，优先继承离得近的。  
->   a. 会继承的 css 属性： 字体属性、文本属性（除了vertical-align）、文字颜色 等。  
->   b. 不会继承的 css 属性：  边框、背景、内边距、外边距、宽高、溢出方式 等。  
->   c.  一个规律：能继承的属性，都是不影响布局的，简单说：都是和盒子模型没关系的  
-3. 优先级: !important > 行内样式 > ID选择器 > 类选择器 > 元素选择器 > * > 继承的样式。  
-### CSS常用属性
-1. 颜色:支持颜色名称（`red`）、RGB（`rgb(255,0,0)`）、十六进制（`#RRGGBB`）
-> 1. `颜色名`：直接使用颜色对应的英文单词，编写比较简单  
-> 2. `rgb 或 rgba`：使用 红、黄、蓝 这三种光的三原色进行组合。 r表示红色；g表示绿色；b表示蓝色；a表示透明度；使用 0~255 之间的数字表示一种颜色
-> 3. `HEX 或 HEXA`：通过：红、绿、蓝色 进行组合，只不过要用 6位（分成3组）来表达，格式为：#rrggbb。每一种光的最小值是：00 ，最大值是：ff。所以：`红色:color: #ff0000;` `绿色:color: #00ff00;` `color: 蓝色:#0000ff;`
-2. 字体属性：`font-size font-family font-style font-weight`
-3. 文本属性：
--   `text-align`：对齐方式（`left`/`center`/`right`）。
--   `text-decoration`：下划线（`underline`）、删除线（`line-through`）。
--   `line-height`：行高控制。
-4. 列表属性：`list-style-type`：设置列表符号；`list-style-position`： 设置列表符号的位置；`list-style-image`： 自定义列表符号
-5. 表格属性：`border-width border-color border-style`
-6. 背景属性：`background-color background-image background-repeat background-position`
-7. 鼠标属性：`cursor` 设置鼠标光标的样式；`pointer`小手；`move `移动图标；`text`文字选择器；`wait`等待；`help`帮助  
-### 盒子模型
-盒模型都是由四个部分组成的，分别是 margin、border、padding 和 content。盒子的大小 = content + 左右 padding + 左右 border；外边距 margin 不会影响盒子的大小，但会影响盒子的位置。 
-1. margin（外边距）： 盒子与外界的距离。
-2. border（边框）： 盒子的边框。
-3. padding（内边距）： 紧贴内容的补白区域。
-4. content（内容）：元素中的文本或后代元素都是它的内容。
-5. margin问题：上 margin 、左 margin ：影响自己的位置；下 margin 、右 margin ：影响后面兄弟元素的位置。
+### 什么是 HTML？
+HyperText Markup Language（超文本标记语言）
+### HTML 字符编码
+1.  计算机对数据的操作:存储时，对数据进行：编码。 读取时，对数据进行：解码。
+2.  字符集
+```js
+1. ASCII ：大写字母、小写字母、数字、一些符号，共计128个。
+2. ISO 8859-1 ：在 ASCII 基础上，扩充了一些希腊字符等，共计是256个。
+3. GB2312 ：继续扩充，收录了 6763 个常用汉字、682个字符。
+4. GBK ：收录了的汉字和符号达到 20000+ ，支持繁体中文。
+5. UTF-8 ：包含世界上所有语言的：所有文字与符号。—— 很常用。
+```
+3.  平时编写代码时，统一采用 UTF-8 编码（最稳妥）。为了让浏览器在渲染 html 文件时，不犯错误，可以通过 meta 标签配合 charset 属性指 定字符编码。 `<meta charset="UTF-8"/>`
+### HTML标准结构
+1. 文档声明 `<!DOCTYPE html>`
+2. 设置语言 `<html lang="zh-CN">`
+3. meta 元信息
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <title>我是一个标题</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
+### meta 元信息
+1. 配置字符编码 `<meta charset="utf-8">`
+2. 针对 IE 浏览器的兼容性配置 `<meta http-equiv="X-UA-Compatible" content="IE=edge">`
+3. 针对移动端的配置 `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+4. 配置网页关键字 `<meta name="keywords" content="8-12个以英文逗号隔开的单词/词语">`
+5. 配置网页描述信息 `<meta name="description" content="80字以内的一段话，与网站内容相关">`
+6. 针对搜索引擎爬虫配置 `<meta name="robots" content="此处可选值见下表">`
+### 图片标签与常见格式
+src：图片路径, 图片的具体位置; alt ：图片描述; width ：图片宽度; height ：图片高度;
+1. jpg 格式： 是一种有损的压缩格式,支持的颜色丰富、占用空间较小、不支持透明背景、不支持动态图。
+2. png 格式： 是一种无损的压缩格式，支持的颜色丰富、占用空间略大、支持透明背景、不支持动态图。 使用场景：①想让图片有透明背景；②想更高质量的呈现图片
+3. bmp 格式：支持的颜色丰富、保留的细节更多、占用空间极大 、不支持透明背景、不支持动态图。 使用场景：对图片细节要求极高的场景
+4. gif 格式： 支持的颜色较少、支持简单透明背景、支持动态图。 使用场景：网页中的动态图片。
+5. webp 格式：谷歌推出的一种格式，专门用来在网页中呈现图片。具备上述几种格式的优点，但兼容性不太好，一
+6. base64 格式: 一串特殊的文本，直接作为 img 标签的 src 属性的值即可; 使用场景：一些较小的图片，或者需要和网页一起加载的图片。
+### 超链接
+1.  主要作用：从当前页面进行跳转。 
+2.  可以实现：①跳转到指定页面、②跳转到指定文件（也可触发下载）、③跳转到锚点位置
+3.  如何设置锚点 : ①a标签配合name属性 ② 其他标签配合id属性
 
-margin 塌陷问题：第一个子元素的上 margin 会作用在父元素上，最后一个子元素的下 margin 会作用在父元素上。 
-> - 解决：方案一： 给父元素设置不为 0 的 padding; 方案二： 给父元素设置宽度不为 0 的 border; 方案三：给父元素设置overflow:hidden 
+```html
+<!-- 跳转到指定页面: 跳转其他网页、跳转本地网页 -->
+<a href="https://www.jd.com/" target="_blank">去京东</a>
+<a href="./10_HTML排版标签.html" target="_self">去看排版标签</a>
 
-margin 合并问题：上面兄弟元素的下外边距和下面兄弟元素的上外边距会合并，取一个最大的值，而不是相加。
->- 解决：底部元素变为行内盒子：display: inline-block；底部元素设置浮动：float；底部元素的 position 设为绝对定位
-### 浮动
-1.  浮动特点
->- 脱离文档流。  
->- 不管浮动前是什么元素，浮动后：默认宽与高都是被内容撑开且可以设置宽高， 不会独占一行  
->- 不会 margin 合并，也不会 margin 塌陷，能够完美的设置四个方向的 margin 和 padding
->- 不会像行内块一样被当做文本处理（没有行内块的空白问题）。
-2. 浮动有什么影响
->- 对兄弟元素的影响： 后面的兄弟元素，会占据浮动元素之前的位置，在浮动元素的下面；对前面的兄弟无影响。
->- 对父元素的影响： 不能撑起父元素的高度，导致父元素高度塌陷；但父元素的宽度依然束缚浮动的元素。  
-3. 解决浮动产生的影响
->- 给父元素指定高度。
->- 给父元素也设置浮动，带来其他影响。  
->- 给父元素设置` overflow:hidden`
->- 给浮动元素的父元素，设置伪元素，通过伪元素清除浮动。`.parent::after { content: ""; display: block;  clear:both;  }`
+<!-- 浏览器不能打开的文件，会自动触发下载 -->
+<a href="./resource/内部资源.zip">内部资源</a>
 
-### 定位
-1. 相对定位：`position:relative`,参考点是相对自己原来的位置
->- 特点：脱离文档流，会对后面的兄弟元素、父元素有影响。
-2. 绝对定位：`position: absolute`, 参考点是它的包含块。对于没有脱离文档流的元素：包含块就是父元素；  
->- 特点： 不会脱离文档流，定位元素的显示层级比普通元素高。 无论是什么元素（行内、行内块、块级）设置为绝对定位之后，都变成了定位元素（默认宽、高都被内容所撑开，且能自由设置宽高）。  
-3. 固定定位：`position:  fixed` , 参考点是视口  
->- 特点：不会脱离文档流，定位元素的显示层级比普通元素高。 无论是什么元素（行内、行内块、块级）设置为绝对定位之后，都变成了定位元素（默认宽、高都被内容所撑开，且能自由设置宽高）。  
-4. 粘性定位：`position:sticky`, 参考点是离它最近的一个拥有“滚动机制”的祖先元素 
->- 特点： 不会脱离文档流，它是一种专门用于窗口滚动时的新的定位方式。 粘性定位和相对定位的特点基本一致，不同的是：粘性定位可以在元素到达某个位置时将其固定。    
-5. 定位层级：定位元素的显示层级比普通元素高。可以通过 css 属性 z-index 调整元素的显示层级，只有定位的元素设置 z-index 才有效。  
+<!-- 跳转到test1锚点-->
+<a href="#test1">去test1锚点</a>
+<!-- 跳到本页面顶部 -->
+<a href="#">回到顶部</a>
+```
+### 表单
+1.  form 表单
+> action 属性： 表单要提交的地址。
+> target 属性： 要跳转的新地址打开位置; 值: _self 、 _blank。
+> method 属性： 请求方式，如get 、 post
+2.  input 输入框
+> type ：设置输入框的类型；
+> name ：用于指定提交数据的名字；
+> value： text 、 password 、 radio 、 checkbox 、 hidden 、 submit 等；
+> disabled 属性： 设置表单控件不可用；
+> checked 属性： 用于单选按钮和复选框，默认选中；
+3.  button 按钮
+> type 属性： 设置按钮的类型，值： submit （默认）、 reset 、 button
+5.  textarea
+6.  select 、option 下拉框以及其选项
+### 框架标签
+1.  iframe 框架（在网页中嵌入其他 文件）
+2.  name ：框架名字，可以与 target 属 性配合。 width ： 框架的宽。 height ： 框架的高度。 frameborder ：是否显示边框，值：0 或者1。
+3.  应用：在网页中嵌入广告。 与超链接或表单的 target 配合，展示不同的内容。
 
-### 元素的显示模式
-1.  块元素（block）： 在页面中独占一行，默认宽度：撑满父元素， 默认高度：由内容撑开，可以设置宽高。 `<h1> ~ <h6> 、 <hr> 、 <p> 、 <pre> 、 <div>、<ul> 、 <ol> 、 <li>`
-2.  行内元素（inline）： 在页面中不独占一行，默认宽度：由内容撑开， 默认高度：由内容撑开，不能设置宽高 。`<br> 、 <em> 、 <strong> 、 <a> 、<label>`
-3.  行内块元素（inline-block）：在页面中不独占一行，默认宽度：由内容撑开， 默认高度：由内容撑开，可以能设置宽高 。`<img>、<input> 、 <textarea> 、 <select> 、 <button>、<td> 、 <th>、<iframe>`
-### 参考链接
-
-[html+css教程，前端html5+css3零基础入门，web前端开发](https://www.bilibili.com/video/BV1p84y1P7Z5/?spm_id_from=333.1387.search.video_card.click&vd_source=a3aec2a1dd5f478da3517872d0c61c5c)

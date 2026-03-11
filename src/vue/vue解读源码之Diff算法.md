@@ -6,6 +6,7 @@ category:
   - 前端
 tag:
   - Vue
+  - 源码
 ---
 ## Diff算法
 ### 1. patch 核心渲染方法改写

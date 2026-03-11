@@ -6,6 +6,7 @@ category:
   - 前端
 tag:
   - Vue
+  - 源码
 ---
 ## 模板渲染原理
 ### 1. 组件挂载入口(src/init.js)

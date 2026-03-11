@@ -1,7 +1,7 @@
 ---
 title: vue组件通信总结
 isTimeLine: true
-date: 2026-03-10
+date: 2026-02-10
 category:
   - 前端
 tag:

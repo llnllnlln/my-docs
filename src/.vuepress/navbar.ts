@@ -3,34 +3,34 @@ import { navbar } from "vuepress-theme-hope";
 export default navbar([
   "/",
   {
+    text: "结实的基底",
+    icon: "article",
+    link: "/posts/",
+  },
+  {
     text: "Vue系列",
     icon: "vue",
     link: "/vue/",
   },
   {
-    text: "Webpack系列",
+    text: "Webpack",
     icon: "tool",
     link: "/webpack/",
   },
   {
-    text: "AI工具系列",
+    text: "AI工具",
     icon: "article",
     link: "/ai-tools/",
   },
   {
-    text: "手机端系列",
+    text: "手机端",
     icon: "article",
     link: "/uniapp/",
   },
   {
-    text: "服务器",
-    icon: "article",
+    text: "后端",
+    icon: "geometry",
     link: "/service/",
-  },
-  {
-    text: "基础",
-    icon: "article",
-    link: "/posts/",
   },
   {
     text: "标签",
