@@ -10,6 +10,7 @@
     "docs:dev": "vuepress dev src",
     "docs:update-package": "yarn dlx vp-update"
   },
+  "packageManager": "pnpm@10.32.0",
   "devDependencies": {
     "@vuepress/client": "2.0.0-beta.66",
     "vue": "^3.3.4",
