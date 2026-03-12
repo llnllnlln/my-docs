@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o,c as t,a as c}from"./app-2b54a1a1.js";const n={},_=c("p",null,"大家好，我是willow，欢迎关注我。",-1),s=[_];function r(l,a){return o(),t("div",null,s)}const f=e(n,[["render",r],["__file","index.html.vue"]]);export{f as default};
