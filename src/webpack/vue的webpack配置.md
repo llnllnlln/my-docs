@@ -1,7 +1,7 @@
 ---
-title: webpack的vue配置
+title: vue的webpack配置
 isTimeLine: true
-date: 2026-02-17
+date: 2025-10-17
 category:
   - 前端
 tag:

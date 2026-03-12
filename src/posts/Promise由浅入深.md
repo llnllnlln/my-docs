@@ -1,7 +1,7 @@
 ---
 title: 手写Promise后，用起来好清晰
 isTimeLine: true
-date: 2026-03-12
+date: 2026-01-02
 category:
   - 前端
 tag:

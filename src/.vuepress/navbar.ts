@@ -42,4 +42,9 @@ export default navbar([
     icon: "time",
     link: "/timeline/",
   },
+  {
+    text: "掘金",
+    link: "https://juejin.cn/user/4344913237918861/posts",
+    icon: "lightbulb",
+  },
 ]);

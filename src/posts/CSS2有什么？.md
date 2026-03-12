@@ -1,7 +1,7 @@
 ---
 title: CSS2有什么
 isTimeLine: true
-date: 2026-02-10
+date: 2025-02-19
 category:
   - 前端
   - CSS

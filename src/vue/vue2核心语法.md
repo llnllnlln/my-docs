@@ -1,7 +1,7 @@
 ---
 title: vue2核心语法
 isTimeLine: true
-date: 2026-03-05
+date: 2025-09-05
 category:
   - 前端
 tag:
