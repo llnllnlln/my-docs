@@ -13,6 +13,11 @@ export default navbar([
     link: "/vue/",
   },
   {
+    text: "项目小结",
+    icon: "article",
+    link: "/project/",
+  },
+  {
     text: "Webpack",
     icon: "tool",
     link: "/webpack/",
@@ -20,12 +25,12 @@ export default navbar([
   {
     text: "AI工具",
     icon: "article",
-    link: "/ai-tools/",
+    children:["/ai-tools/Claude code快速上手.md"]
   },
   {
     text: "手机端",
     icon: "article",
-    link: "/uniapp/",
+    children: ["/uniapp/uniapp基础.md", "/uniapp/uniapp实战.md"]
   },
   {
     text: "后端",
