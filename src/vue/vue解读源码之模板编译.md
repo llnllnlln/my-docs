@@ -9,28 +9,29 @@ tag:
   - 源码
 ---
 ## 模板编译原理
-将html变成ast语法树 ->通过ast 生成render函数
-### 1 模板编译入口
+1. vue的模板template不是正确的html语法，无法被浏览器解析并渲染，需要将模板转为js函数，浏览器就可以执行这个函数并渲染处页面。
+3. 模板编译主要是将模板编译成render结构，`<div id="app" style="color:#fff"><p>hello{{name}}</p></div>`编译得出render()函数`with(this){return _c('div', {id: 'app', style:'{color:'#fff'}}, _c('p', undefined, _v('hello'+_s(name))))}`
+4. 实现主要是靠`parse()`将html变成ast语法树,`generator()`通过ast，生成render函数;
+### 模板编译入口
 - initMixin.js
 1. _init函数里面执行vm.$mount(vm.$options.el);
 2. 把$mount方法挂载在 Vue 原型,判断是否存在 render、template和el属性
-### 2 模板转化核心方法
+### 模板转化核心方法
 - src/compiler/index.js
 1. compileToFunctions函数
-2. let ast = parse(template); 
-● let code = generate(ast); code类似 类似_c('div',{id:"app"},_c('div',undefined,_v("hello"+_s(name)),_c('span',undefined,_v("world"))))
-### 3 解析 html 并生成 ast
+2. let ast = parse(template); let code = generate(ast); 
+### 解析html并生成ast
 - src/compiler/parse.js
 1. createASTElement函数: ast结构
-2. parse函数: 查找<在第一个,是标签:开始标签/结束标签 ,不是是标签:文本2 判断是否开始标签->开始标签截取->匹配属性、结束符号>生成标签名和属性对象->把解析好的标签名和属性解析生成ast3 不断的 advance 截取剩余的字符串,并建立相应的父子关联
-### 4 根据 ast 转化成render函数
+2. parse函数: 
+    - 查找<在第一个,是标签:开始标签/结束标签 ,不是是标签:文本2 
+    - 判断是否开始标签->开始标签截取->匹配属性、结束符号>生成标签名和属性对象->把解析好的标签名和属性解析生成ast3 
+    - 不断的 advance 截取剩余的字符串,并建立相应的父子关联
+### 根据ast转化成render函数
 - src/compiler/codegen.js
-- _c('div',{id:"app"},_c('div',undefined,_v("hello"+_s(name)),_c('span',undefined,_v("world"))))
-1. generate函数:递归创建生成code
-2. gen函数 genProps函数  处理attrs属性
-3. getChildren函数生成子节点 调用gen函数进行递归创建
-4. compileToFunctions ->generate->getChildren->gen->generate
-5. generate->getChildren为true->gen:根据ast的type，如果是节点则generate(),否则处理普通文本和变量表达式{{}}返回 _v()->code处理attrs属性
+1. generate函数:递归创建生成code：gen函数 genProps函数  处理attrs属性
+2. getChildren函数生成子节点 调用gen函数进行递归创建
+3. compileToFunctions ->generate->getChildren->gen->generate
 ```js
 //模板编译原理:$mount 方法 最终将处理好的 template 模板转成 render 函数
 // 1 initMixin.js

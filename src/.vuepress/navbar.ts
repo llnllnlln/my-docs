@@ -18,7 +18,7 @@ export default navbar([
     link: "/project/",
   },
   {
-    text: "Webpack",
+    text: "工程化",
     icon: "tool",
     link: "/webpack/",
   },

@@ -1,11 +1,10 @@
 ---
 title: 定制化导出execl的封装，比如表头合并、多个sheet等格式
 isTimeLine: true
-date: 2026-03-01
+date: 2026-03-02
 category:
-  - 前端
+  - 后端
 tag:
-  - JavaScript 
   - node
 ---
 ### 场景

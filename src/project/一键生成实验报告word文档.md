@@ -3,10 +3,10 @@ title: 根据实验流程数据一键生成64页的实验报告word文档
 isTimeLine: true
 date: 2026-03-09
 category:
-  - 前端
+  - 后端
 tag:
   - JavaScript 
-  - 源码
+  - nodejs
 ---
 
 ### 场景

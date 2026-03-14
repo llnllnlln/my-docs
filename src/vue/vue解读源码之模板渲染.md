@@ -9,18 +9,25 @@ tag:
   - 源码
 ---
 ## 模板渲染原理
-### 1. 组件挂载入口(src/init.js)
-- $mount return mountComponent(vm, el); 将当前组件实例挂载到真实的el节点上面
-### 2. 组件挂载核心方法mountComponent(vm._update(vm._render()))
-- _update和._render方法都是挂载在Vue原型的方法
-- 调用render函数 生成虚拟dom,使用vm._update()方法把虚拟dom渲染到页面
-### 3. render 函数转化成虚拟 dom 核心方法_render(src/vdom/index.js)
-- renderMixin(){Vue.prototype._render,Vue.prototype._c,Vue.prototype._v ,Vue.prototype._s}
-- class Vnode {}定义Vnode类
-- createElement createTextNode 创建元素vnode、文本vnode
-### 4. 虚拟 dom 转化成真实 dom 核心方法_update(src/vdom/index.js src/vdom/patch.js) 
-- lifecycleMixin 把_update挂载到vue原型上
-- patch 用来渲染和更新视图，渲染vnode转成真实dom：判断是不是初次渲染->createElm创建真实dom节点，解析虚拟dom属性->插入到老的el节点的后面,删除老的el节点
+### 组件挂载入口
+1. `src/init.js`
+2. `$mount return mountComponent(vm, el)`; 将当前组件实例挂载到真实的el节点上面
+### 组件挂载核心方法
+1. `mountComponent(vm._update(vm._render()))`
+2. _update和._render方法都是挂载在Vue原型的方法
+3. 调用`render`函数,生成虚拟dom,
+4. 使用`vm._update()`方法把虚拟dom渲染到页面
+### render函数转化成虚拟dom 
+核心方法_render
+1. `src/vdom/index.js`
+2. `renderMixin(){Vue.prototype._render,Vue.prototype._c,Vue.prototype._v ,Vue.prototype._s}`
+3. `class Vnode{}`：定义Vnode类
+4. `createElement/createTextNode`: 创建元素vnode、文本vnode
+### 虚拟dom转化成真实dom 
+1. 核心方法`_update(src/vdom/index.js src/vdom/patch.js) `
+2. `lifecycleMixin`把_update挂载到vue原型上
+3. `patch`用来渲染和更新视图，渲染vnode转成真实dom
+4. `createElm`创建真实dom节点，解析虚拟dom属性, 插入到老的el节点的后面,删除老的el节点
 ```js
 //模板渲染原理
 // 1 src/init.js 组件挂载入口

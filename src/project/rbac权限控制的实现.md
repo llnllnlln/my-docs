@@ -6,7 +6,7 @@ category:
   - 前端
 tag:
   - JavaScript 
-  - 源码
+  - Vue
 ---
 ### 场景
 1. 不同账号需要展示不同的菜单；比如分析人员可以看到分析相关仪器、试剂，看不到报告管理相关菜单。
@@ -30,8 +30,11 @@ tag:
 4. 根据后端返回给当前用户私有的菜单，生成路由信息格式数组，再把它vuex存储起来
     - 主要是根据`GenerateRoutes`这个方法传入菜单数组，再调用`generator`方法将后端返回的结构转化成符合格式的路由，
     - 比如生成`name、path、meta、component`动态路由，`path`路径也得到了拼接补充。
+    - 获取到菜单格式：`{ name:'sampleStability'，text:"样本稳定性",  icon，children: [] }`
+    - 转化为路由格式：`{ name: 'sampleStability', path:'app/modules/sampleStability', meta:{keepAlive": true, "title": "样本稳定性", icon}, component: ()=> import('@/modules/sampleStability');}`
 5. 全局路由守卫有了公共路由与动态路由，调用`addRoutes`添加路由
 6. 判断输入地址的是否有权限，有的话跳转到对应页面，没有的话跳到403页面
+7. 满足条件都得调用`next()`, 它与node的中间件类似，有放行的意思。
 ```js
 // src/permission.js
 import router from './router'
