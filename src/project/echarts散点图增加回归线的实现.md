@@ -26,7 +26,7 @@ tag:
     - `{ type: 'line',data: lineData,symbol: 'none'}`
 3. 计算得到a,b后。 line线的绘制需要知道它的起点终点。x直接取arr的最大最小值，已知最大最小x，y代入公式可得最大最小y。那么回归线即可绘制。
 ### 坑点
-#### 公式的精确计算
+#### 坑点1 公式的精确计算
 ![image.png](../project/img/jisuan.png)
 ![image.png](../project/img/jisuan2.png)
 1. 回归斜率：`calcINTERCEPT(listx, listy) {}` 返回两组数值的斜率、截距值
@@ -113,7 +113,7 @@ static calcCORREL(listx, listy) {
     return R;
 }
 ```
-#### 正态分布：F分布的逆累积分布函数，execl的公式 =FINV(0.05,9,20)
+#### 坑点2 正态分布：F分布的逆累积分布函数，execl的公式 =FINV(0.05,9,20)
 ![image.png](../project/img/jisuan3.png)
 1. 可以计算FINV的库`mathjs science.js jStat`
 2. 难点：
@@ -123,5 +123,5 @@ static calcCORREL(listx, listy) {
 3. 解决：
     - 查看jStat官网，api说明太简单，专业性也强，最后找到了正确的api
     - 返回中心F分布的累积概率密度为p的x的值`const tValue = jStat.centralF.inv(q, df1, df2)`
-#### 散点图出不来
+#### 坑点3 散点图出不来
 如果minY为负数会报错,然后整个图像显示为空，解决方式是设置minY为0，获取对应的minX的值
